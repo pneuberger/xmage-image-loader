@@ -9,9 +9,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionException;
@@ -30,8 +28,8 @@ public class ScryfallCrawler {
 
     public void loadAllSets() {
 
-//        ExecutorService executor = Executors.newSingleThreadExecutor();
-        ExecutorService executor = Executors.newFixedThreadPool(5);
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+//        ExecutorService executor = Executors.newFixedThreadPool(5);
 
         List<String> sets = setsConfiguration.getSets();
 
