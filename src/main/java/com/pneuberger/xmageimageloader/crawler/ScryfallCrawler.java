@@ -20,16 +20,12 @@ public class ScryfallCrawler {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ScryfallCrawler.class);
 
-    @Autowired
-    private MTGSetsConfiguration setsConfiguration;
-
     @Value("${download.folder}")
     private String downloadFolder;
 
-    public void loadAllSets() {
-
-        ExecutorService executor = Executors.newSingleThreadExecutor();
-//        ExecutorService executor = Executors.newFixedThreadPool(5);
+    @Autowired
+    public void loadAllSets(MTGSetsConfiguration setsConfiguration) {
+        ExecutorService executor = Executors.newFixedThreadPool(5);
 
         List<String> sets = setsConfiguration.getSets();
 
